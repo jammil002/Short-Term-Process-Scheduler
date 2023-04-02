@@ -141,9 +141,6 @@ void *processScheduler(void *arg)
     int totalWaitingTime = 0;
     int executedProcesses = 0;
 
-    printf("ProcessID  Waiting Time  Turnaround Time\n");
-    printf("----------------------------------------\n");
-
     while (true)
     {
         printProcessQueue(list);
@@ -155,6 +152,9 @@ void *processScheduler(void *arg)
             {
                 printf("Executing ProcessID %d\n", current->processId);
                 turnaroundTime = waitingTime + current->burstTime;
+
+                printf("ProcessID  Waiting Time  Turnaround Time\n");
+                printf("----------------------------------------\n");
                 printf("%-9d  %-12d  %-15d\n", current->processId, waitingTime, turnaroundTime);
 
                 totalWaitingTime += waitingTime;
